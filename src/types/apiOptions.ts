@@ -2,16 +2,8 @@ const apiOptions = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTliZGI1YzRlNGQ3Y2M0NTk2YTVmZGZkMmU3ZWUyMCIsInN1YiI6IjY0YjljOTMyYWI2ODQ5MDBjNWRjN2Q4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OWQpH3t-U6e-aPh8yIIfAPLqFmSFFPnVgTEtwNUW8KI`,
   },
 };
 
-const apiOptionsServerSide = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: `Bearer ${process.env.API_TOKEN}`,
-  },
-};
-
-export { apiOptions, apiOptionsServerSide };
+export default apiOptions;

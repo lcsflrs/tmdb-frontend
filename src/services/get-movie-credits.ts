@@ -1,9 +1,9 @@
-import { apiOptionsServerSide } from "@/types/apiOptions";
+import apiOptions from "@/types/apiOptions";
 
 export async function getMovieCredit(id: number) {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${id}/credits`,
-    apiOptionsServerSide
+    apiOptions
   );
 
   const data = await response.json();

@@ -1,11 +1,10 @@
 "use client";
 
-import { IGenre } from "@/types";
 import React, { createContext, useContext, useState } from "react";
 
 interface FilterContextInterface {
-  selectedGenres: IGenre[];
-  setSelectedGenres: React.Dispatch<React.SetStateAction<IGenre[]>>;
+  selectedGenresId: number[];
+  setSelectedGenresId: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 export const FilterContext = createContext<FilterContextInterface>(
@@ -13,10 +12,10 @@ export const FilterContext = createContext<FilterContextInterface>(
 );
 
 const FilterProvider = ({ children }: { children: React.ReactNode }) => {
-  const [selectedGenres, setSelectedGenres] = useState<IGenre[]>([]);
+  const [selectedGenresId, setSelectedGenresId] = useState<number[]>([]);
 
   return (
-    <FilterContext.Provider value={{ selectedGenres, setSelectedGenres }}>
+    <FilterContext.Provider value={{ selectedGenresId, setSelectedGenresId }}>
       {children}
     </FilterContext.Provider>
   );

@@ -18,18 +18,16 @@ export default function Home() {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [genres, setGenres] = useState<IGenre[]>([]);
 
-  const { selectedGenres, setSelectedGenres } = useFilterStore();
+  const { selectedGenresId, setSelectedGenresId } = useFilterStore();
 
   const [loadingGenres, setLoadingGenres] = useState(true);
   const [loadingMovies, setLoadingMovies] = useState(true);
 
   const handleGenreClick = (genre: IGenre) => {
-    if (selectedGenres.map((elem) => elem.id).includes(genre.id)) {
-      setSelectedGenres(
-        selectedGenres.filter((selectedGenre) => selectedGenre.id !== genre.id)
-      );
+    if (selectedGenresId.includes(genre.id)) {
+      setSelectedGenresId(selectedGenresId.filter((id) => id !== genre.id));
     } else {
-      setSelectedGenres([...selectedGenres, genre]);
+      setSelectedGenresId([...selectedGenresId, genre.id]);
     }
     setPage(1);
   };
@@ -46,7 +44,7 @@ export default function Home() {
   };
   useEffect(() => {
     const fetchMovies = async () => {
-      const genresString = selectedGenres.map((genre) => genre.id).join("|");
+      const genresString = selectedGenresId.join("|");
       const data = await getMovies(page, genresString);
       setMovies(data.results);
       setLoadingMovies(false);
@@ -57,7 +55,7 @@ export default function Home() {
     } catch (err) {
       console.log(err);
     }
-  }, [page, selectedGenres]);
+  }, [page, selectedGenresId]);
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -98,9 +96,7 @@ export default function Home() {
                   <FilterButton
                     text={genre.name}
                     onClick={() => handleGenreClick(genre)}
-                    active={selectedGenres
-                      .map((elem) => elem.id)
-                      .includes(genre.id)}
+                    active={selectedGenresId.includes(genre.id)}
                     key={index}
                   />
                 );

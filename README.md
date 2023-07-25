@@ -18,7 +18,9 @@ For this challenge, I chose to use the following technologies:
 
 ## Getting Started
 
-First, run the development server:
+First, create a `.env` file in the root of the project, following the `.env.example` file provided, and add your themoviedb API key (you can create a free account at https://www.themoviedb.org/ to obtain the key)
+
+Then, run the development server:
 
 ```bash
 npm run dev

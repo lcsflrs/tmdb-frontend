@@ -1,4 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Challenge - Popular Movies List
+
+## Introduction
+
+The objective of this project is to create an application that lists the most popular movies of the day, using the free themoviedb API version 3. Additionally, the user should have the ability to view the details of a movie by clicking on an item in the list, as well as filter the movies by genre.
+
+To view the project in production, simply click [here](https://tmdb-frontend-sand.vercel.app/).
+
+## Technologies Used
+
+For this challenge, I chose to use the following technologies:
+
+- **NextJS**: The NextJS framework was chosen for its ease of implementing Server-Side Rendering (SSR) and ensuring better optimization for search engines (SEO). Additionally, page navigation is faster and smoother due to optimized page loading.
+
+- **Tailwind CSS**: I used Tailwind CSS as the styling tool for the project. Tailwind is a utility-first library that allowed me to create styles quickly and efficiently, while also ensuring the responsiveness of the application.
 
 ## Getting Started
 
@@ -13,22 +27,3 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

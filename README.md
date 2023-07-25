@@ -14,6 +14,8 @@ For this challenge, I chose to use the following technologies:
 
 - **Tailwind CSS**: I used Tailwind CSS as the styling tool for the project. Tailwind is a utility-first library that allowed me to create styles quickly and efficiently, while also ensuring the responsiveness of the application.
 
+- **TypeScript**: I opted to use TypeScript to add static typing to the project, which provides greater security and facilitates code maintenance, while making it more readable and clear.
+
 ## Getting Started
 
 First, run the development server:

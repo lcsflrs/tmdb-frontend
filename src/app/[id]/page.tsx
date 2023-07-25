@@ -3,7 +3,6 @@ import ContentContainer from "@/components/ContentContainer";
 import MovieCard from "@/components/MovieCard";
 import { getMovieById } from "@/services/get-movie-by-id";
 import { Metadata } from "next";
-import "react-circular-progressbar/dist/styles.css";
 
 interface MovieProps {
   params: {

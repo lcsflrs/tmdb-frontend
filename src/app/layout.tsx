@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import PageContainer from "@/components/PageContainer";
+import { FilterProvider } from "@/context/filterContext";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
@@ -23,8 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={roboto.className}>
       <body>
-        <Header />
-        <PageContainer>{children}</PageContainer>
+        <FilterProvider>
+          <Header />
+          <PageContainer>{children}</PageContainer>
+        </FilterProvider>
       </body>
     </html>
   );

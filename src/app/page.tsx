@@ -6,6 +6,7 @@ import FilterButton from "@/components/FilterButton";
 import MovieCard from "@/components/MovieCard";
 import FilterButtonSkeleton from "@/components/skeletons/FilterButtonSkeleton";
 import MovieCardSkeleton from "@/components/skeletons/MovieCardSkeleton";
+import { useFilterStore } from "@/context/filterContext";
 import { IGenre, IMovie } from "@/types";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
@@ -16,13 +17,14 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [genres, setGenres] = useState<IGenre[]>([]);
-  const [selectedGenres, setSelectedGenres] = useState<IGenre[]>([]);
+
+  const { selectedGenres, setSelectedGenres } = useFilterStore();
 
   const [loadingGenres, setLoadingGenres] = useState(true);
   const [loadingMovies, setLoadingMovies] = useState(true);
 
   const handleGenreClick = (genre: IGenre) => {
-    if (selectedGenres.includes(genre)) {
+    if (selectedGenres.map((elem) => elem.id).includes(genre.id)) {
       setSelectedGenres(
         selectedGenres.filter((selectedGenre) => selectedGenre.id !== genre.id)
       );
@@ -91,14 +93,18 @@ export default function Home() {
                 Array.from({ length: 10 }).map((_, index) => {
                   return <FilterButtonSkeleton key={index} />;
                 })}
-              {genres.map((genre, index) => (
-                <FilterButton
-                  text={genre.name}
-                  onClick={() => handleGenreClick(genre)}
-                  active={selectedGenres.includes(genre)}
-                  key={index}
-                />
-              ))}
+              {genres.map((genre, index) => {
+                return (
+                  <FilterButton
+                    text={genre.name}
+                    onClick={() => handleGenreClick(genre)}
+                    active={selectedGenres
+                      .map((elem) => elem.id)
+                      .includes(genre.id)}
+                    key={index}
+                  />
+                );
+              })}
             </div>
           </div>
         </ContentContainer>

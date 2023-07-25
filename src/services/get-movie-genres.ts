@@ -1,4 +1,4 @@
-import apiOptions from "@/types/apiOptions";
+import { apiOptions } from "@/types/apiOptions";
 
 export async function getGenres() {
   const response = await fetch(

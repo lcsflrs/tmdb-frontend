@@ -1,4 +1,4 @@
-import apiOptions from "@/types/apiOptions";
+import { apiOptions } from "@/types/apiOptions";
 
 export async function getMovies(page: number, genresString: string) {
   const response = await fetch(
